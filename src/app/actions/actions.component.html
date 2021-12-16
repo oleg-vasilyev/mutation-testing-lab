@@ -1,0 +1,33 @@
+<ng-template
+  let-context
+  #action
+>
+  <button
+    class="actions--button"
+    [class.actions--button_selected]="isSelected(context)"
+    (click)="selectHandler(context)"
+  >
+    {{context}}
+  </button>
+</ng-template>
+
+<div class="actions--container">
+
+  <span class="actions--info">{{tasksLeft$ | async}} items left</span>
+
+  <div>
+    <ng-container *ngTemplateOutlet="action; context: {$implicit: FilterEnum.All }"></ng-container>
+
+    <ng-container *ngTemplateOutlet="action; context: {$implicit: FilterEnum.Active }"></ng-container>
+
+    <ng-container *ngTemplateOutlet="action; context: {$implicit: FilterEnum.Completed }"></ng-container>
+  </div>
+
+  <button
+    class="actions--button"
+    (click)="clearCompletedHandler()"
+  >
+    Clear Completed
+  </button>
+
+</div>
