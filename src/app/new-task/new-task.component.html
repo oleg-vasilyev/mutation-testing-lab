@@ -1,0 +1,23 @@
+<form>
+  <mat-form-field
+    class="new-task--form-field"
+    appearance="fill"
+  >
+    <span matPrefix>
+      <mat-checkbox
+        class="new-task--checkbox"
+        color="primary"
+        [formControl]="isDoneControl"
+      ></mat-checkbox>
+    </span>
+    <input
+      class="new-task--input"
+      matInput
+      autocomplete="off"
+      placeholder="New task"
+      [formControl]="titleControl"
+      (keyup.enter)="enterHandler()"
+      (keyup.esc)="escHandler()"
+    >
+  </mat-form-field>
+</form>

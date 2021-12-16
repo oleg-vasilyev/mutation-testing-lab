@@ -1,0 +1,56 @@
+:host {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+
+  .root--background-image {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: 40%;
+    height: 35%;
+    width: 100%;
+    z-index:  -1;
+    background-image: url(../assets/image.jpg);
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 0.6;
+      background: linear-gradient(45deg, #8b39d2, #72a6fa);
+    }
+  }
+
+  .root--header {
+    margin-top: 140px;
+    font-size: 40px;
+    line-height: 40px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 24px;
+  }
+
+  .root--main {
+    margin-top: 50px;
+  }
+
+  .root--task-list {
+    margin-top: 25px;
+  }
+
+  .root--message {
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: #b1b1b6;
+    font-weight: 500;
+  }
+}
