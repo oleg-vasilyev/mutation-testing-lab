@@ -1,0 +1,49 @@
+<div
+  *ngIf="tasks.length; else noTasks"
+  cdkDropList
+  class="task-list--container"
+  (cdkDropListDropped)="dropHandler($event)"
+>
+  <div
+    [@enterAnimation]
+    class="task-list--task"
+    *ngFor="let task of tasks; trackBy: trackByFunc"
+    cdkDrag
+  >
+    <div
+      class="task-list--placeholder"
+      *cdkDragPlaceholder
+    ></div>
+
+    <div class="task-list--content">
+      <mat-checkbox
+        class="task-list--checkbox"
+        color="primary"
+        [checked]="task.isDone"
+        (change)="checkboxChangeHandler(task)"
+      ></mat-checkbox>
+      <span
+        class="task-list--task"
+        [class.task-list--task_completed]="task.isDone"
+      >
+        {{task.title}}
+      </span>
+    </div>
+
+    <button
+      class="task-list--remove"
+      mat-icon-button
+      aria-label="Remove"
+      (click)="removeHandler(task)"
+    >
+      <mat-icon class="task-list--icon">close</mat-icon>
+    </button>
+  </div>
+</div>
+
+<ng-template #noTasks>
+  <div class="task-list--no-tasks">
+    <div class="task-list--no-tasks-image"></div>
+    <span class="task-list--no-tasks-text">There are no tasks left</span>
+  </div>
+</ng-template>
